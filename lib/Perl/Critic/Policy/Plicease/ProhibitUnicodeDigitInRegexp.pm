@@ -58,6 +58,9 @@ sub violates
 {
   my($self, $elem) = @_;
 
+  # I wouldn't have thought a transliterate was a regexp
+  return if $elem->isa('PPI::Token::Regexp::Transliterate');
+
   my %mods = $elem->get_modifiers();
 
   # if the whole expression uses /a then we are in the clear.

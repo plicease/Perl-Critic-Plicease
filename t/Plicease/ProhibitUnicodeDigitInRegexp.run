@@ -24,6 +24,12 @@ use re '/a';
 
 qr/\d//;
 
+## name Transliterate
+## failures 0
+## cut
+
+tr/\d//;
+
 ## name RegExpWithSlashDInsideOtherStuff
 ## failures 1
 ## cut
