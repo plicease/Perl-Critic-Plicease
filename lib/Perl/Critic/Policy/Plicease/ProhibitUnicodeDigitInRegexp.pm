@@ -48,10 +48,11 @@ use constant DESC => 'Using non-ASCII \d';
 use constant EXPL => 'The character class \d matches non-ASCI unicode digits.  ' .
                      'Use [0-9] or the /a modifier (Perl 5.14+) instead.';
 
-sub supported_parameters { ()                          }
-sub default_severity     { $SEVERITY_LOW               }
-sub default_themes       { ()                          }
-sub applies_to           { return 'PPI::Token::Regexp' }
+sub supported_parameters { ()                                       }
+sub default_severity     { $SEVERITY_LOW                            }
+sub default_themes       { ()                                       }
+sub applies_to           { return ('PPI::Token::Regexp',
+                                   'PPI::Token::QuoteLike::Regexp') }
 
 sub violates
 {

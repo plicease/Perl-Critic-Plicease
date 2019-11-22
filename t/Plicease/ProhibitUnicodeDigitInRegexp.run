@@ -18,6 +18,12 @@ use re '/a';
 
 /\d/;
 
+## name QuoteLikeRegexpWithSlashD
+## failures 1
+## cut
+
+qr/\d//;
+
 ## name RegExpWithSlashDInsideOtherStuff
 ## failures 1
 ## cut
