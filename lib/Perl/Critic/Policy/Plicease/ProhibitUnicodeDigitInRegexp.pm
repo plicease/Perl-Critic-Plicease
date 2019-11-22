@@ -65,8 +65,7 @@ sub violates
   # if the whole expression uses /a then we are in the clear.
   return if $mods{'a'};
 
-  my($start,$end) = split //, [$elem->get_delimiters]->[0];
-  my $re = PPIx::Regexp->new("m$start@{[ $elem->get_match_string ]}$end");
+  my $re = PPIx::Regexp->new($elem->content);
   my $ccs = $re->find('PPIx::Regexp::Token::CharClass');
   return unless $ccs;
   foreach my $cc (@$ccs)
