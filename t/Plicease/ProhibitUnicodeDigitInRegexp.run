@@ -10,6 +10,14 @@
 
 /\d//;
 
+## name GlobalDoesntSaveYou
+## failures 1
+## cut
+
+use re '/a';
+
+/\d/;
+
 ## name RegExpWithSlashDInsideOtherStuff
 ## failures 1
 ## cut

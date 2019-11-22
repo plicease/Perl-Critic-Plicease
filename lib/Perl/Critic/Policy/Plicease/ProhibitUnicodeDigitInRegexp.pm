@@ -36,6 +36,12 @@ In the general the ability to match against unicode digits is a useful ability, 
 constitute bad code.  Some applications don't ever need to match non-ASCII digit characters,
 and incorrectly rely on C<\d> to validate as a number.
 
+This policy doesn't take into account using the L<re> pragma.
+
+ use re '/a';
+
+ /\d/;  # (still) not ok
+
 =cut
 
 use constant DESC => 'Using non-ASCII \d';
