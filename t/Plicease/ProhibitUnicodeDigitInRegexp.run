@@ -4,6 +4,12 @@
 
 /\d/;
 
+## name RexExpSubWithSlashD
+## failures 1
+## cut
+
+/\d//;
+
 ## name RegExpWithSlashDInsideOtherStuff
 ## failures 1
 ## cut
