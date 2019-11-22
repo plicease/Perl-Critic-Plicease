@@ -4,6 +4,12 @@
 
 /\d/;
 
+## name RegExpWithSlashDInsideOtherStuff
+## failures 1
+## cut
+
+/foo\dbar/
+
 ## name RegExpWithSlashDSlashA
 ## failures 0
 ## cut

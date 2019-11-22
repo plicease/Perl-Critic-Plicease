@@ -39,7 +39,7 @@ and incorrectly rely on C<\d> to validate as a number.
 =cut
 
 use constant DESC => 'Using non-ASCII \d';
-use constant EXPL => 'The character class \d matches unicode number character in other languages.  ' .
+use constant EXPL => 'The character class \d matches non-ASCI unicode digits.  ' .
                      'Use [0-9] or the /a modifier (Perl 5.14+) instead.';
 
 sub supported_parameters { ()                          }
@@ -57,7 +57,7 @@ sub violates
   return if $mods{'a'};
 
   my $match = $elem->get_match_string;
-  if($match =~ /^\\d/)
+  if($match =~ /\\d/)
   {
     return $self->violation( DESC, EXPL, $elem );
   }
