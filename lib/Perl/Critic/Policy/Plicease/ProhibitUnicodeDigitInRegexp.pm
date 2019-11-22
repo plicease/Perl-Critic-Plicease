@@ -1,4 +1,4 @@
-package Perl::Critic::Policy::Plicease::ProhibitUnicodeNumberInRegexp;
+package Perl::Critic::Policy::Plicease::ProhibitUnicodeDigitInRegexp;
 
 use strict;
 use warnings;
