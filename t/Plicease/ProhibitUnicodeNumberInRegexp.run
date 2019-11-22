@@ -1,0 +1,17 @@
+## name RexExpWithSlashD
+## failures 1
+## cut
+
+/\d/;
+
+## name RegExpWithSlashDSlashA
+## failures 0
+## cut
+
+/\d/a;
+
+## name RegExpWithoutSlashD
+## failures 0
+## cut
+
+/foo/;
