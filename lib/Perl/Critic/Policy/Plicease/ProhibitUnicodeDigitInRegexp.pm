@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use 5.008001;
 use Perl::Critic::Utils qw( $SEVERITY_LOW );
+use PPIx::Regexp;
 use base qw( Perl::Critic::Policy );
 
 # ABSTRACT: Prohibit non-ASCII \d in regular expressions
@@ -48,27 +49,29 @@ use constant DESC => 'Using non-ASCII \d';
 use constant EXPL => 'The character class \d matches non-ASCI unicode digits.  ' .
                      'Use [0-9] or the /a modifier (Perl 5.14+) instead.';
 
-sub supported_parameters { ()                                       }
-sub default_severity     { $SEVERITY_LOW                            }
-sub default_themes       { ()                                       }
-sub applies_to           { return ('PPI::Token::Regexp',
-                                   'PPI::Token::QuoteLike::Regexp') }
+sub supported_parameters { ()                                        }
+sub default_severity     { $SEVERITY_LOW                             }
+sub default_themes       { ()                                        }
+sub applies_to           { return ('PPI::Token::Regexp::Match',
+                                   'PPI::Token::Regexp::Substitute',
+                                   'PPI::Token::QuoteLike::Regexp')  }
 
 sub violates
 {
   my($self, $elem) = @_;
-
-  # I wouldn't have thought a transliterate was a regexp
-  return if $elem->isa('PPI::Token::Regexp::Transliterate');
 
   my %mods = $elem->get_modifiers();
 
   # if the whole expression uses /a then we are in the clear.
   return if $mods{'a'};
 
-  my $match = $elem->get_match_string;
-  if($match =~ /\\d/)
+  my($start,$end) = split //, [$elem->get_delimiters]->[0];
+  my $re = PPIx::Regexp->new("m$start@{[ $elem->get_match_string ]}$end");
+  my $ccs = $re->find('PPIx::Regexp::Token::CharClass');
+  return unless $ccs;
+  foreach my $cc (@$ccs)
   {
+    next if $cc->content ne '\\d';
     return $self->violation( DESC, EXPL, $elem );
   }
 

@@ -24,11 +24,25 @@ use re '/a';
 
 qr/\d//;
 
+## name RegExpWithDifferentDelim
+## failures 3
+## cut
+
+m{\d};
+s!\d!!;
+qr#\d#;
+
 ## name Transliterate
 ## failures 0
 ## cut
 
 tr/\d//;
+
+## name RegExpWithSlashS
+## failures 0
+## cut
+
+/\s/;
 
 ## name RegExpWithSlashDInsideOtherStuff
 ## failures 1
