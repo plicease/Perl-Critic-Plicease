@@ -39,8 +39,10 @@ some thought.  This is frequently true for L<Perl::Critic> policies, but especia
 for this policy.
 
 In the general the ability to match against unicode digits is a useful ability, and doesn't
-constitute bad code.  Some applications don't ever need to match non-ASCII digit characters,
-and incorrectly rely on C<\d> to validate as a number.
+constitute bad code.  On the other hand, some applications don't ever need to match non-ASCII
+digit characters, and incorrectly rely on C<\d> to validate as a number as Perl understands
+it (and Perl understands non-ASCII digits as zero regardless of what they mean in their
+respective languages).
 
 This policy doesn't take into account using the L<re> pragma.
 
