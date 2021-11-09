@@ -53,7 +53,7 @@ This policy doesn't take into account using the L<re> pragma.
 =cut
 
 use constant DESC => 'Using non-ASCII \d';
-use constant EXPL => 'The character class \d matches non-ASCI unicode digits.  ' .
+use constant EXPL => 'The character class \d matches non-ASCII unicode digits.  ' .
                      'Use [0-9] or the /a modifier (Perl 5.14+) instead.';
 
 sub supported_parameters { ()                                        }
