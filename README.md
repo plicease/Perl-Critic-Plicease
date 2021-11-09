@@ -19,7 +19,11 @@ case basis.
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Author: Graham Ollis <plicease@cpan.org>
+
+Contributors:
+
+Ville Skyttä (SCOP)
 
 # COPYRIGHT AND LICENSE
 
