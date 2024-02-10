@@ -10,6 +10,17 @@ use base qw( Perl::Critic::Policy );
 # ABSTRACT: Prohibit non-ASCII \d in regular expressions
 # VERSION
 
+=head1 SYNOPSIS
+
+perlcriticrc:
+
+ [Plicease::ProhibitUnicodeDigitInRegexp]
+
+code:
+
+ /\d/;      # not ok
+ /[0-9]/;   # ok
+
 =head1 DESCRIPTION
 
 The character class C<\d> in a regular expression matches all unicode digit character, which
