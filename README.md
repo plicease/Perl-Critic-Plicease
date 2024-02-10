@@ -1,4 +1,4 @@
-# Perl::Critic::Plicease ![linux](https://github.com/uperl/Perl-Critic-Plicease/workflows/linux/badge.svg) ![macos](https://github.com/uperl/Perl-Critic-Plicease/workflows/macos/badge.svg) ![windows](https://github.com/uperl/Perl-Critic-Plicease/workflows/windows/badge.svg) ![cygwin](https://github.com/uperl/Perl-Critic-Plicease/workflows/cygwin/badge.svg) ![msys2-mingw](https://github.com/uperl/Perl-Critic-Plicease/workflows/msys2-mingw/badge.svg)
+# Perl::Critic::Plicease ![linux](https://github.com/uperl/Perl-Critic-Plicease/workflows/linux/badge.svg) ![static](https://github.com/uperl/Perl-Critic-Plicease/workflows/static/badge.svg)
 
 Some Perl::Critic policies used by Plicease
 
