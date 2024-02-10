@@ -9,29 +9,52 @@ use base qw( Perl::Critic::Policy );
 # ABSTRACT: Leading zeroes are okay as the first arg to chmod, and other such reasonableness
 # VERSION
 
+=head1 SYNOPSIS
+
+perlcriticrc:
+
+ [Plicease::ProhibitLeadingZeros]
+
+code:
+
+ 0123;               # not ok
+ 1234;               # ok
+ chmod 0700;         # ok
+ mkpath($foo, 0700); # ok
+
 =head1 DESCRIPTION
 
-This is a stupid mistake:
+Perl interprets numbers with leading zeros as octal. If that's what you really want, its
+better to use C<oct> and make it obvious.  However, some operations are well known as using
+octal such as C<chmod> and C<mkpath> so this policy disallows mistakes like this:
 
  my $x = 1231;
  my $y = 2345;
  my $z = 0032;
 
-This is not:
+But not non-mistakes like this:
 
  chmod 0700, "secret_file.txt";
 
-Neither is this:
+or this:
 
  use File::Path qw( mkpath );
  
  mkpath("/foo/bar/baz", 1, 0700);
 
-Nor is this:
+or is this:
 
  use Path::Class qw( dir );
  
  dir()->mkpath(1,0700);
+
+=head1 AFFILIATION
+
+None.
+
+=head1 CONFIGURATION
+
+This policy is not configurable except for the standard options.
 
 =head1 CAVEATS
 
