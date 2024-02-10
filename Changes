@@ -1,8 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-  - (ProhibitSpecificModules) Added new policy
-  - Bump required Perl to 5.10.1
+  - (ProhibitSpecificModules) Added new policy (gh#5)
+  - Bump required Perl to 5.10.1 (gh#5)
+  - Documentation Improvements (gh#5)
 
 0.04      2021-11-09 10:20:14 -0700
   - Documentation fixes (gh#3 scop++)
