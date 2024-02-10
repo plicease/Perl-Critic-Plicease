@@ -2,7 +2,7 @@ package Perl::Critic::Plicease;
 
 use strict;
 use warnings;
-use 5.008004;
+use 5.010001;
 
 # ABSTRACT: Some Perl::Critic policies used by Plicease
 # VERSION

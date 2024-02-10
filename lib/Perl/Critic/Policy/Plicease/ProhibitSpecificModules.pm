@@ -2,7 +2,7 @@ package Perl::Critic::Policy::Plicease::ProhibitSpecificModules;
 
 use strict;
 use warnings;
-use 5.008004;
+use 5.010001;
 use Perl::Critic::Utils qw( $SEVERITY_HIGH );
 use base qw( Perl::Critic::Policy );
 
