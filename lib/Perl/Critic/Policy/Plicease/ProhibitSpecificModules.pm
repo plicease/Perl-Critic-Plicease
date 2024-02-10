@@ -9,6 +9,46 @@ use base qw( Perl::Critic::Policy );
 # ABSTRACT: Prohibit the use of specific modules or pragmas
 # VERSION
 
+=head1 SYNOPSIS
+
+perlcriticrc:
+
+ [Plicease::ProhibitSpecificModules]
+ illicit_modules = Foo Bar
+
+code:
+
+ use Foo; # not ok
+ use Bar; # not ok
+ use Baz; # ok
+
+=head1 DESCRIPTION
+
+The policy L<Perl::Critic::Policy::Community::DiscouragedModules>
+provides a good start for modules that typically should not be used
+in new code, however for specific organizational policies, you may
+want to disallow specific modules.  This policy has been designed
+to allow you to do exactly that without any "starter" disallowed
+modules.
+
+=head1 AFFILIATION
+
+None.
+
+=head1 CONFIGURATION
+
+=over 4
+
+=item * illicit_modules
+
+Space separated list of modules that should be disallowed.
+
+=back
+
+The policy is also configurable with the standard options.
+
+=cut
+
 sub supported_parameters
 {
   return (
