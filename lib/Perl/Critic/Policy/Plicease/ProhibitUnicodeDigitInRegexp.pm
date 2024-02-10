@@ -2,7 +2,7 @@ package Perl::Critic::Policy::Plicease::ProhibitUnicodeDigitInRegexp;
 
 use strict;
 use warnings;
-use 5.008001;
+use 5.008004;
 use Perl::Critic::Utils qw( $SEVERITY_LOW );
 use PPIx::Regexp;
 use base qw( Perl::Critic::Policy );
