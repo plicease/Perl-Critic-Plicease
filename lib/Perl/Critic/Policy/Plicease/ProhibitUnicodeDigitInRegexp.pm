@@ -23,16 +23,19 @@ code:
 
 =head1 DESCRIPTION
 
-The character class C<\d> in a regular expression matches all unicode digit character, which
+The character class C<\d> (also the POSIX character class C<[:digit:]>) in a regular expression matches all unicode digit character, which
 might not be what you expect if you are testing if a string can be used as a number in Perl.
 Instead use either C<[0-9]>, or if you are on Perl 5.14 or better you can use the C</a>
 modifier.  This policy allows C<\d> in expressions with an explicit C</u> modifier (normally
 on by default), as it indicates that the code is expecting Unicode semantics, including Unicode
 digits.
 
- /\d/;      # not ok
- /\d/a;     # ok
- /\d/u;     # ok
+ /\d/;           # not ok
+ /[[:digit:]]/;  # not ok
+ /\d/a;          # ok
+ /\d/u;          # ok
+ /[[:digit:]]/a; # ok
+ /[[:digit:]]/u; # ok
  /[0-9]/;   # ok
 
 =head1 AFFILIATION
@@ -64,7 +67,7 @@ This policy doesn't take into account using the L<re> pragma.
 =cut
 
 use constant DESC => 'Using non-ASCII \d';
-use constant EXPL => 'The character class \d matches non-ASCII unicode digits.  ' .
+use constant EXPL => 'The character class \d (also the POSIX character class [:digit:]) matches non-ASCII unicode digits.  ' .
                      'Use [0-9] or the /a modifier (Perl 5.14+) instead.';
 
 sub supported_parameters { ()                                        }
@@ -92,7 +95,7 @@ sub violates
   return unless $ccs;
   foreach my $cc (@$ccs)
   {
-    next if $cc->content ne '\\d';
+    next if ($cc->content ne '\\d' && $cc->content ne '[:digit:]');
     return $self->violation( DESC, EXPL, $elem );
   }
 
