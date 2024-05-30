@@ -25,6 +25,8 @@ Contributors:
 
 Ville Skyttä (SCOP)
 
+Yoshikazu Sawa (yoshikazusawa)
+
 # COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2019-2024 by Graham Ollis.

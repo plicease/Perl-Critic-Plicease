@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - (ProhibitUnicodeDigitInRegexp) Treat digit character class /[:digit:]/
+    the same as \d (gh#7, Thanks Yoshikazu Sawa)
 
 0.06      2024-05-09 11:08:43 -0600
   - (ProhibitSignaturesAndAtUnderscore) Added new policy (gh#6)
