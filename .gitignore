@@ -1,2 +1,4 @@
 /Perl-Critic-Plicease-*
 /.build
+*.old
+*.orig
