@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.09      2024-12-27 16:09:09 -0700
   - (ProhibitSignaturesAndAtUnderscore) Do not detect @_ inside nested sub (gh#10, gh#11)
 
 0.08      2024-12-27 09:48:41 -0700
