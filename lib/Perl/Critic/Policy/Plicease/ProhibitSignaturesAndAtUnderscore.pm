@@ -86,15 +86,33 @@ sub violates {
     foreach my $sub (@$subs) {
       next unless( $PPI::Document::VERSION > 1.279 ?
         @{$sub->find('PPI::Structure::Signature')} : defined $sub->prototype );
-      my $symbols = $sub->find('PPI::Token::Symbol') || [];
-      foreach my $symbol (@$symbols) {
-        next unless $symbol->symbol eq '@_';
+
+      foreach my $symbol ( _recurse($sub->schildren) ) {
         push @violations, $self->violation(DESC, EXPL, $symbol);
       }
     }
   }
 
   return @violations;
+}
+
+# since PPI doesn't detect anonymous subroutines...
+# look to ignore a PPI::Token::Word with `sub` followed by sibling PPI::Structure::Block
+
+sub _recurse {
+  my @ret;
+  my(@children) = @_;
+  for my $i (0..$#children) {
+    next if $children[$i]->isa('PPI::Statement::Sub');
+    next if $i >= 1 && $children[$i]->isa('PPI::Structure::Block') && $children[$i-1]->isa('PPI::Token::Word') && $children[$i-1]->literal eq 'sub';
+
+    if($children[$i]->isa('PPI::Token::Symbol') && $children[$i]->symbol eq '@_') {
+      push @ret, $children[$i];
+    } elsif($children[$i]->can('schildren')) {
+      push @ret, _recurse($children[$i]->schildren);
+    }
+  }
+  return @ret;
 }
 
 1;
