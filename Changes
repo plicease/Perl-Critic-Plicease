@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.08      2024-12-27 09:48:41 -0700
+  - Documentation fixes and improvements.
   - More accurately detect signatures for Policy Plicease::ProhibitSignaturesAndAtUnderscore (MITHALDU++, gh#9)
 
 0.07      2024-05-29 20:01:09 -0600
