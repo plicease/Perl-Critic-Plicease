@@ -13,6 +13,14 @@ case basis.
 
     This is a slight remix on the prohibit leading zeros policy with some helpful exceptions.
 
+- [Perl::Critic::Policy::Plicease::ProhibitSignaturesAndAtUnderscore](https://metacpan.org/pod/Perl::Critic::Policy::Plicease::ProhibitSignaturesAndAtUnderscore)
+
+    Prohibit the use of `@_` in subroutine using signatures
+
+- [Perl::Critic::Policy::Plicease::ProhibitSpecificModules](https://metacpan.org/pod/Perl::Critic::Policy::Plicease::ProhibitSpecificModules)
+
+    Prohibit the use of specific modules or pragmas
+
 - [Plicease::ProhibitUnicodeDigitInRegexp](https://metacpan.org/pod/Perl::Critic::Policy::Plicease::ProhibitUnicodeDigitInRegexp)
 
     Prohibit `\d` (match any digit) in regular expressions without the `/a` or `/u` modifier.

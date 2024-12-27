@@ -20,6 +20,14 @@ case basis.
 
 This is a slight remix on the prohibit leading zeros policy with some helpful exceptions.
 
+=item L<Perl::Critic::Policy::Plicease::ProhibitSignaturesAndAtUnderscore>
+
+Prohibit the use of C<@_> in subroutine using signatures
+
+=item L<Perl::Critic::Policy::Plicease::ProhibitSpecificModules>
+
+Prohibit the use of specific modules or pragmas
+
 =item L<Plicease::ProhibitUnicodeDigitInRegexp|Perl::Critic::Policy::Plicease::ProhibitUnicodeDigitInRegexp>
 
 Prohibit C<\d> (match any digit) in regular expressions without the C</a> or C</u> modifier.

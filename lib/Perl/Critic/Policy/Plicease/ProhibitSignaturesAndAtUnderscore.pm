@@ -30,14 +30,16 @@ None.
 This policy can be configured to recognize additional modules as enabling the signatures feature, by
 putting an entry in a .perlcriticrc file like this:
 
- [Community::Prototypes]
- signature_enablers = Plicease::ProhibitSignaturesAndAtUnderscore
+ [Plicease::ProhibitSignaturesAndAtUnderscore]
+ signature_enablers = Foo::Bar
 
 =head1 CAVEATS
 
-This module assumes that "prototypes" detected in a source file that has signatures enabled are actually
-subroutine signatures.  This is because through static analysis alone it is not possible to determine if
-a "prototype" is really a prototype and not a signature.  There thus may be false negatives/positives.
+For older versions of L<PPI> (newer version is yet unreleased as of this writing), this module assumes
+that "prototypes" detected in a source file that has signatures enabled are actually subroutine signatures.
+This is because through static analysis alone it is not possible to determine if a "prototype" is really a
+prototype and not a signature.  There thus may be false negatives/positives.  Future versions of this module
+will require a L<PPI> with better signature detection.
 
 =cut
 
