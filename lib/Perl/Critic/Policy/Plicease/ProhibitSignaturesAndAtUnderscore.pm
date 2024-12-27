@@ -82,7 +82,8 @@ sub violates {
 
     my $subs = $elem->find('PPI::Statement::Sub') || [];
     foreach my $sub (@$subs) {
-      next unless defined $sub->prototype;
+      next unless( $PPI::Document::VERSION > 1.279 ?
+        @{$sub->find('PPI::Structure::Signature')} : defined $sub->prototype );
       my $symbols = $sub->find('PPI::Token::Symbol') || [];
       foreach my $symbol (@$symbols) {
         next unless $symbol->symbol eq '@_';
