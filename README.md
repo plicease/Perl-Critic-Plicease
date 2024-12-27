@@ -27,6 +27,8 @@ Ville Skyttä (SCOP)
 
 Yoshikazu Sawa (yoshikazusawa)
 
+Christian Walde (wchristian, MITHALDU)
+
 # COPYRIGHT AND LICENSE
 
 This software is copyright (c) 2019-2024 by Graham Ollis.
