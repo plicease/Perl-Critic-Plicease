@@ -11,8 +11,8 @@ use base qw( Perl::Critic::Policy );
 
 =head1 SYNOPSIS
 
- sub foo ($$) { my($a,$b) = @_; }                                    # ok
- use experimental qw( signatures ); foo ($a, $b) { my($c,$d) = @_; } # not ok
+ sub foo ($$) { my($x,$y) = @_; }                                    # ok
+ use experimental qw( signatures ); foo ($x, $y) { my($c,$d) = @_; } # not ok
 
 =head1 DESCRIPTION
 
